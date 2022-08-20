@@ -7,7 +7,7 @@ function createCard(dt, temp, tempMin, tempMax, icon, description) {
   return `<div class="card_day">
     <p class="forecast_day">${day}</p>
     <p class="time_card">${time}</p>
-    <img src="http://openweathermap.org/img/wn/${icon}.png" alt="">
+    <img src="https://openweathermap.org/img/wn/${icon}.png" alt="">
     <p class="description_text">${description}</p>
     <div class="degrees_block">
       <p class="font_medium">${temp}°</p>
@@ -18,7 +18,7 @@ function createCard(dt, temp, tempMin, tempMax, icon, description) {
 
 function handleApiRequest(q, units) {
   fetch(
-    `http://api.openweathermap.org/data/2.5/forecast?&q=${q}&units=${units}&appid=8abba83ab8f518e7f932c74ac200adb8`
+    `https://api.openweathermap.org/data/2.5/forecast?&q=${q}&units=${units}&appid=8abba83ab8f518e7f932c74ac200adb8`
   )
     .then(function (resp) {
       return resp.json();
