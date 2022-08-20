@@ -1,26 +1,4 @@
 const weatherList = document.querySelector("#weather");
-fetch(
-  "http://api.openweathermap.org/data/2.5/forecast?&q=Ternopil&units=metric&appid=8abba83ab8f518e7f932c74ac200adb8"
-)
-  .then(function (resp) {
-    return resp.json();
-  })
-  .then(function (data) {
-    // console.log(data);
-    console.log(data.list);
-    for (const weather of data.list) {
-      const cardHTML = createCard(
-        weather.dt,
-        Math.round(weather.main.temp),
-        Math.round(weather.main.temp_min),
-        weather.main.temp_max,
-        weather.weather[0].icon,
-        weather.weather[0].description
-      );
-      weatherList.innerHTML += cardHTML;
-    }
-  })
-  .catch(function () {});
 
 function createCard(dt, temp, tempMin, tempMax, icon, description) {
   const date = new Date(dt * 1000);
@@ -37,3 +15,41 @@ function createCard(dt, temp, tempMin, tempMax, icon, description) {
     </div>
   </div>`;
 }
+
+function handleApiRequest(q, units) {
+  fetch(
+    `http://api.openweathermap.org/data/2.5/forecast?&q=${q}&units=${units}&appid=8abba83ab8f518e7f932c74ac200adb8`
+  )
+    .then(function (resp) {
+      return resp.json();
+    })
+    .then(function (data) {
+      // console.log(data);
+      console.log(data.list);
+      weatherList.innerHTML = "";
+      for (const weather of data.list) {
+        const cardHTML = createCard(
+          weather.dt,
+          Math.round(weather.main.temp),
+          Math.round(weather.main.temp_min),
+          weather.main.temp_max,
+          weather.weather[0].icon,
+          weather.weather[0].description
+        );
+        weatherList.innerHTML += cardHTML;
+      }
+    })
+    .catch(function () {});
+}
+
+const switchMode = document.querySelector("#themeButton");
+
+switchMode.onclick = function () {
+  let theme = document.documentElement;
+
+  if (theme.className === "dark") {
+    theme.className = "light";
+  } else {
+    theme.className = "dark";
+  }
+};
