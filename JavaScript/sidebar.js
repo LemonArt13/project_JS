@@ -33,8 +33,8 @@ function createhighlights(wind, sunrise, sunset, humidity, visibility) {
       class="wind_icon_svg"
       version="1.1"
       id="Layer_1"
-      xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns="https://www.w3.org/2000/svg"
+      xmlns:xlink="https://www.w3.org/1999/xlink"
       x="0px"
       y="0px"
       viewBox="0 0 122.88 74.78"
@@ -115,7 +115,7 @@ function createCurrent(dt, temp, icon, description, city) {
 
   return `<div class="icon_deg_block">
     <img
-      src="http://openweathermap.org/img/wn/${icon}@4x.png"
+      src="https://openweathermap.org/img/wn/${icon}@4x.png"
       alt=""
       class="current_icon"
     />
@@ -131,7 +131,7 @@ function createCurrent(dt, temp, icon, description, city) {
   <hr class="line" />
   <div class="current_icon_day">
     <svg 
-      xmlns="http://www.w3.org/2000/svg" 
+      xmlns="https://www.w3.org/2000/svg" 
       fill="none" 
       viewBox="0 0 24 24" 
       stroke-width="2" 
@@ -147,7 +147,7 @@ function createCurrent(dt, temp, icon, description, city) {
   </div>
   <div class="current_time">
     <svg
-      xmlns="http://www.w3.org/2000/svg"
+      xmlns="https://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
       stroke-width="2"
