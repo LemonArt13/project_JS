@@ -54,7 +54,7 @@ function createhighlights(wind, sunrise, sunset, humidity, visibility) {
     <div class="suny_block">
       <div class="sun_block">
         <img
-          src="/projectJs/images/sunrise.svg"
+          src="/images/sunrise.svg"
           alt="sunrise"
           class="sun_img"
         />
@@ -62,7 +62,7 @@ function createhighlights(wind, sunrise, sunset, humidity, visibility) {
       </div>
       <div class="sun_block">
         <img
-          src="/projectJs/images/sunset.svg"
+          src="/images/sunset.svg"
           alt="sunset"
           class="sun_img"
         />
