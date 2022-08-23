@@ -213,6 +213,16 @@ function requestWeather() {
     })
     .then(function (dataCurrent) {
       console.log(dataCurrent);
+      if (dataCurrent.message) {
+        if (dataCurrent.message === "city not found") {
+          console.log(dataCurrent.message);
+          openModal("Місто не знайдено");
+          return;
+        } else {
+          console.log(dataCurrent.message);
+          openModal("Введіть назву міста");
+        }
+      }
       const highlightHTML = createhighlights(
         dataCurrent.wind.speed,
         dataCurrent.sys.sunrise,

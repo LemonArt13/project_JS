@@ -41,12 +41,20 @@ html.dark {
   --background: rgb(18 18 18);
   --background-color: rgb(22 22 22);
   --text-color: rgb(255, 255, 255);
+  --modal-color: rgb(217, 255, 253);
+  --modal-text-color: rgb(56, 48, 48);
+  --modal-close: rgb(56, 48, 48);
+  --modal-hover: rgb(100, 100, 100);
 }
 
 html.light {
   --text-color: rgb(22 22 22);
   --background-color: rgb(217, 255, 253);
   --background: rgb(252, 255, 255);
+  --modal-color: rgb(19, 19, 19);
+  --modal-text-color: rgb(255, 255, 255);
+  --modal-close: rgb(255, 255, 255);
+  --modal-hover: rgb(100, 100, 100);
 }
 
 body {
@@ -537,4 +545,77 @@ body {
   .highlights_cards {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
+}
+
+/* Modal */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  position: relative;
+  background-color: var(--modal-color);
+  margin: auto;
+  padding: 0;
+  border: 5px solid var(--modal-text-color);
+  border-radius: 20px;
+  width: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+@keyframes animate {
+  from {
+    top: -320px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.close {
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--modal-close);
+  margin-right: 10px;
+  position: absolute;
+  right: 5px;
+  top: -5px;
+}
+
+.close:hover,
+.close:focus {
+  color: var(--modal-hover);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal_title {
+  color: var(--modal-text-color);
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.modal_text {
+  color: var(--modal-text-color);
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }

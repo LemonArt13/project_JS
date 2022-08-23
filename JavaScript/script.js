@@ -53,3 +53,24 @@ switchMode.onclick = function () {
     theme.className = "dark";
   }
 };
+
+// Modal //
+
+let modal = document.querySelector("#myModal");
+let span = document.querySelector(".close");
+let modalText = document.querySelector(".modal_text");
+
+span.onclick = function () {
+  modal.style.display = "none";
+};
+
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
+
+function openModal(message) {
+  modal.style.display = "block";
+  modalText.textContent = message;
+}
